@@ -1,0 +1,39 @@
+<!-- Javascript Fun App - Append Element On Mousemove And Remove Element After Few Seconds -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun App</title>
+    <link rel="stylesheet" type="text/css" href="JSFun2.css">
+</head>
+
+<body>
+    <script type="text/javascript">
+        var logos = [];
+        for (let i = 1; i < 50; i++) {
+            let ele = "logos/logo\ \(" + i + "\).png";
+            logos.push(ele);
+        }
+        document.addEventListener("mousemove", function(event) {
+            var body = document.querySelector("body"),
+                bubbles = document.createElement("img");
+            var x = event.offsetX,
+                y = event.offsetY;
+            bubbles.style.left = x + "px";
+            bubbles.style.top = y + "px";
+            var size = Math.random() * 100;
+            bubbles.style.width = 20 + size + "px";
+            bubbles.style.height = 20 + size + "px";
+            bubbles.setAttribute("src", "" + logos[Math.floor(Math.random() * 49)]);
+            body.appendChild(bubbles);
+            setTimeout(function() {
+                bubbles.remove();
+            }, 4000);
+        });
+    </script>
+</body>
+
+</html>

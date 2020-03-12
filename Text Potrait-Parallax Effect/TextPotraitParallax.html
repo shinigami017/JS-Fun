@@ -1,0 +1,33 @@
+<!-- Text Potrait with Mousemove Parallax Effect using CSS and vanilla Javascript. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Potrait | Parallax Effect</title>
+    <link rel="stylesheet" href="TextPotraitParallax.css">
+</head>
+
+<body>
+    <section>
+        <p>text</p>
+        <div id="pic"></div>
+    </section>
+    <script type="text/javascript">
+        var p = document.querySelector("p");
+        var text = p.textContent;
+        var msg = "";
+        for (let i = 0; i < 10000; i++) {
+            msg += " " + text;
+        }
+        p.textContent = msg;
+        var pic = document.getElementById("pic");
+        window.onmousemove = function(event) {
+            pic.style.width = event.clientX + "px";
+        }
+    </script>
+</body>
+
+</html>
